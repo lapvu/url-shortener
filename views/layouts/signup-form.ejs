@@ -1,0 +1,39 @@
+<div class="container login text-center">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1>SIGN UP</h1>
+            <form method="POST" action="/auth/sign-up">
+                <% if(errors){%>
+                    <div class="alert alert-danger" role="alert">
+                        <%if( errors['g-recaptcha-response']){%>
+                            <%= errors['g-recaptcha-response'].msg %>,
+                                <%}%>
+                                    <%if( errors.username){%>
+                                        <%= errors.username.msg %>,
+                                            <%}%>
+                                                <%if( errors.email){%>
+                                                    <%= errors.email.msg  %>,
+                                                        <%}%>
+                                                            <%if( errors.password){%>
+                                                                <%= errors.password.msg  %>
+                                                                    <%}%>
+                    </div>
+                    <%}%>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Username" required="" name="username" value="<%= matched.username %>">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="email" required="" name="email" value="<%= matched.email %>">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Password" required="" name="password">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="confirm-Password" required="" name="confirm-password">
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6LefrVEUAAAAAKlrbJTeDrt8IGv38ULtDYmCIwcg"></div>
+                        <button type="submit" class="btn btn-lg btn-primary btn-block">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>

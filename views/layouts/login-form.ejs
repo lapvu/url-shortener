@@ -1,0 +1,22 @@
+<div class="container login text-center">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <% if(messages){%>
+                    <%- messages %>
+                <%}%>
+                <% if (msg.length > 0) { %>
+                    <div class="alert alert-danger"><%= msg %></div>
+                <% } %>
+                    <h1>LOGIN</h1>
+                    <form method="POST" action="/auth/login">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Username" name="username" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+                    </form>
+        </div>
+    </div>  
+</div>
